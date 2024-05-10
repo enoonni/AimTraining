@@ -49,6 +49,36 @@ namespace GameData
 
                 SaveSizeSettings();
             }
+
+            if(PlayerPrefs.HasKey("ColorRedTarget") && PlayerPrefs.HasKey("ColorGreenTarget") && PlayerPrefs.HasKey("ColorBlueTarget"))
+            {
+                ColorRedTarget = PlayerPrefs.GetFloat("ColorRedTarget");
+                ColorGreenTarget = PlayerPrefs.GetFloat("ColorGreenTarget");
+                ColorBlueTarget = PlayerPrefs.GetFloat("ColorBlueTarget");
+            }
+            else
+            {
+                ColorRedTarget = _defaultColorRedTarget;
+                ColorGreenTarget = _defaultColorGreenTarget;
+                ColorBlueTarget = _defaultColorBlueTarget;                
+
+                SaveColorTargetSettings();
+            }
+
+            if(PlayerPrefs.HasKey("ColorRedFrame") && PlayerPrefs.HasKey("ColorGreenFrame") && PlayerPrefs.HasKey("ColorBlueFrame"))
+            {
+                ColorRedFrame = PlayerPrefs.GetFloat("ColorRedFrame");
+                ColorGreenFrame = PlayerPrefs.GetFloat("ColorGreenFrame");
+                ColorBlueFrame = PlayerPrefs.GetFloat("ColorBlueFrame");
+            }
+            else
+            {
+                ColorRedFrame = _defaultColorRedFrame;
+                ColorGreenFrame = _defaultColorGreenFrame;
+                ColorBlueFrame = _defaultColorBlueFrame;
+
+                SaveColorFrameSettings();
+            }
         }
 
         /*
