@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
-namespace GameData
+namespace GameData.Crosshair
 {
     public class CrosshairData
     {
+        public static event EventHandler OnSettingsChanged;
+        
         /*
                         Size variables
         */
@@ -73,6 +76,8 @@ namespace GameData
             SizeWidth = width;
 
             SaveSizeSettings();
+
+            OnSettingsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         /*
@@ -93,6 +98,8 @@ namespace GameData
             ColorBlue = blue;
 
             SaveColorSettings();
+
+            OnSettingsChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

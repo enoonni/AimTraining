@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameData
+namespace GameData.Target
 {
 
     public class TargetData
