@@ -25,6 +25,8 @@ namespace Gameplay.Crosshair
             CrosshairSetColor();
 
             CrosshairData.OnSettingsChanged += ChangeCrosshair;
+
+            _crosshairData.SaveSize(0.5f, 0.1f);
         }
 
         ~CrosshairSettings()
@@ -34,7 +36,7 @@ namespace Gameplay.Crosshair
         
         private void CrosshairSetSize()
         {
-            _horizontalLine.transform.localScale = new Vector3(_crosshairData.SizeLength, _crosshairData.SizeLength);
+            _horizontalLine.transform.localScale = new Vector3(_crosshairData.SizeLength, _crosshairData.SizeWidth);
             _verticalLine.transform.localScale = new Vector3(_crosshairData.SizeWidth, _crosshairData.SizeLength);
         }
 
