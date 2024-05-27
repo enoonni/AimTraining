@@ -14,6 +14,7 @@ namespace Gameplay
         {
             _target = target;
             _lifeTimeSec = lifeTime;
+            
             _maxRangeX = maxRangeX;
             _maxRangeY = maxRangeY;
         }
