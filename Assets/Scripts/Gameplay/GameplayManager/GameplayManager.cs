@@ -11,10 +11,15 @@ namespace Gameplay.GameplayManager
         private IGameModeSelector _gameMode;
         [SerializeField] private GameObject _target;
 
+        public Stopwatch GameStopwatch{ get; private set; }
+
         private void Awake()
         {
             _currentNameScene = SceneManager.GetActiveScene().name;
             _targetGenerator = new TargetGenerator(_target, 3f, 7f, 4f);
+
+            GameStopwatch = new Stopwatch();
+            GameStopwatch.Start();
 
             GameModeSelection();
         }
@@ -22,6 +27,8 @@ namespace Gameplay.GameplayManager
         private void FixedUpdate()
         {
             _gameMode.PlayGameMode();
+
+            GameStopwatch.CountTime();
         }
 
         private void GameModeSelection()
