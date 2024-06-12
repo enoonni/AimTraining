@@ -12,18 +12,19 @@ namespace Gameplay
         public event TimeChangedEventHandler OnTimeChanged;
         public Stopwatch()
         {
+            _isWorks = false;
             _currentTime = 0;
         }
         public void CountTime()
         {
             if(_isWorks)
             {
-                var lastTime = _currentTime;
+                var lastTime = (int)_currentTime;
                 _currentTime += Time.deltaTime;
-
-                if((_currentTime - lastTime) >= (1.0f))
+                
+                if(lastTime < (int)_currentTime)
                 {
-                    OnTimeChanged?.Invoke(this, _currentTime);
+                    OnTimeChanged?.Invoke(null, _currentTime);
                 }
             }
         }

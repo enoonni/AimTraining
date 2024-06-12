@@ -6,7 +6,6 @@ namespace Gameplay.GameplayManager
 {
     public class GameplayManager : MonoBehaviour
     {
-        private string _currentNameScene;
         private TargetGenerator _targetGenerator;
         private IGameModeSelector _gameMode;
         [SerializeField] private GameObject _target;
@@ -15,13 +14,13 @@ namespace Gameplay.GameplayManager
 
         private void Awake()
         {
-            _currentNameScene = SceneManager.GetActiveScene().name;
             _targetGenerator = new TargetGenerator(_target, 3f, 7f, 4f);
 
             GameStopwatch = new Stopwatch();
-            GameStopwatch.Start();
 
             GameModeSelection();
+            
+            GameStopwatch.Start();
         }
         
         private void FixedUpdate()
@@ -33,7 +32,7 @@ namespace Gameplay.GameplayManager
 
         private void GameModeSelection()
         {
-            switch(_currentNameScene)
+            switch(SceneManager.GetActiveScene().name)
             {
                 case "Survival":
                 {
